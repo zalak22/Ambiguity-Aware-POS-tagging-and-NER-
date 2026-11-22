@@ -1,0 +1,525 @@
+{
+  "files": {
+    "hi2gu_train": {
+      "sentences": 13306,
+      "tokens": 281057,
+      "sent_len_mean": 21.1,
+      "sent_len_max": 116,
+      "duplicate_sentences": 11,
+      "multiword_tokens": 0,
+      "upos_distribution": {
+        "NOUN": 62191,
+        "ADP": 58463,
+        "PROPN": 34288,
+        "VERB": 29008,
+        "AUX": 18947,
+        "PUNCT": 18668,
+        "ADJ": 17279,
+        "PRON": 11857,
+        "DET": 6074,
+        "PART": 5610,
+        "SCONJ": 5389,
+        "NUM": 5332,
+        "CCONJ": 5110,
+        "ADV": 2711,
+        "X": 127,
+        "INTJ": 3
+      },
+      "xpos_distribution": {
+        "PSP": 56373,
+        "NN": 56198,
+        "VM": 29915,
+        "NNP": 22375,
+        "SYM": 18668,
+        "VAUX": 18086,
+        "JJ": 15635,
+        "NNPC": 11914,
+        "PRP": 11567,
+        "CC": 10492,
+        "NNC": 5918,
+        "QC": 4761,
+        "NST": 3948,
+        "DEM": 3845,
+        "RP": 3815,
+        "QF": 2182,
+        "NEG": 1795,
+        "RB": 1236,
+        "QCC": 553,
+        "QO": 448,
+        "INTF": 322,
+        "JJC": 312,
+        "WQ": 283,
+        "RDP": 185,
+        "UNK": 110,
+        "PRPC": 58,
+        "NSTC": 21,
+        "RBC": 18,
+        "QFC": 14,
+        "CCC": 7,
+        "INJ": 3
+      },
+      "vocab_size": 16544,
+      "ambiguous_word_types": 2037,
+      "ambiguous_token_share": 0.531,
+      "top_ambiguous_words": {
+        "કે": {
+          "ADP": 12669,
+          "PROPN": 37,
+          "NOUN": 4,
+          "PART": 1,
+          "AUX": 1
+        },
+        "મેં": {
+          "ADP": 8416,
+          "PART": 4,
+          "PROPN": 1
+        },
+        "કી": {
+          "ADP": 6476,
+          "PROPN": 10,
+          "VERB": 988,
+          "AUX": 1
+        },
+        "હૈ": {
+          "AUX": 6289,
+          "VERB": 623,
+          "PROPN": 1
+        },
+        "સે": {
+          "ADP": 4653,
+          "PART": 93,
+          "DET": 1
+        },
+        "કિ": {
+          "SCONJ": 4391,
+          "PART": 30
+        },
+        "કા": {
+          "ADP": 3514,
+          "PROPN": 2,
+          "NOUN": 1
+        },
+        "પર": {
+          "ADP": 3238,
+          "CCONJ": 90,
+          "NOUN": 3
+        },
+        "ઔર": {
+          "CCONJ": 3099,
+          "DET": 125,
+          "ADJ": 13,
+          "ADV": 18,
+          "PROPN": 21,
+          "NOUN": 7,
+          "PRON": 1
+        },
+        "હૈં": {
+          "AUX": 2065,
+          "VERB": 93
+        },
+        "ઇસ": {
+          "DET": 1917,
+          "PRON": 212
+        },
+        "લિએ": {
+          "ADP": 1773,
+          "VERB": 57
+        },
+        "નહીં": {
+          "PART": 1612,
+          "NOUN": 1
+        },
+        "કર": {
+          "VERB": 1313,
+          "AUX": 106,
+          "NOUN": 28,
+          "PROPN": 7
+        },
+        "એક": {
+          "NUM": 1348,
+          "PROPN": 18,
+          "PRON": 37,
+          "NOUN": 18,
+          "ADJ": 1
+        }
+      }
+    },
+    "hi2gu_dev": {
+      "sentences": 1659,
+      "tokens": 35217,
+      "sent_len_mean": 21.2,
+      "sent_len_max": 68,
+      "duplicate_sentences": 3,
+      "multiword_tokens": 0,
+      "upos_distribution": {
+        "NOUN": 7928,
+        "ADP": 7288,
+        "PROPN": 4214,
+        "VERB": 3490,
+        "AUX": 2417,
+        "PUNCT": 2367,
+        "ADJ": 2246,
+        "PRON": 1473,
+        "PART": 722,
+        "NUM": 715,
+        "DET": 697,
+        "CCONJ": 682,
+        "SCONJ": 682,
+        "ADV": 292,
+        "X": 4
+      },
+      "xpos_distribution": {
+        "NN": 7169,
+        "PSP": 7027,
+        "VM": 3698,
+        "NNP": 2672,
+        "SYM": 2367,
+        "VAUX": 2217,
+        "JJ": 2033,
+        "NNPC": 1542,
+        "PRP": 1449,
+        "CC": 1364,
+        "NNC": 745,
+        "QC": 616,
+        "RP": 509,
+        "NST": 490,
+        "DEM": 424,
+        "QF": 277,
+        "NEG": 213,
+        "RB": 118,
+        "QCC": 96,
+        "QO": 56,
+        "JJC": 44,
+        "INTF": 32,
+        "RDP": 26,
+        "WQ": 22,
+        "UNK": 4,
+        "PRPC": 2,
+        "QFC": 2,
+        "RBC": 2,
+        "NSTC": 1
+      },
+      "vocab_size": 5291,
+      "ambiguous_word_types": 479,
+      "ambiguous_token_share": 0.373,
+      "top_ambiguous_words": {
+        "કે": {
+          "ADP": 1583,
+          "PROPN": 3,
+          "PART": 1
+        },
+        "કી": {
+          "ADP": 821,
+          "VERB": 143
+        },
+        "હૈ": {
+          "AUX": 828,
+          "VERB": 77
+        },
+        "સે": {
+          "ADP": 587,
+          "PART": 10,
+          "DET": 1
+        },
+        "કિ": {
+          "SCONJ": 565,
+          "PART": 7
+        },
+        "ઔર": {
+          "CCONJ": 428,
+          "DET": 15,
+          "PROPN": 2
+        },
+        "પર": {
+          "ADP": 395,
+          "CCONJ": 8
+        },
+        "હૈં": {
+          "AUX": 276,
+          "VERB": 13
+        },
+        "લિએ": {
+          "ADP": 243,
+          "VERB": 11
+        },
+        "ઇસ": {
+          "DET": 205,
+          "PRON": 14
+        },
+        "નહીં": {
+          "PART": 202,
+          "NOUN": 1
+        },
+        "કર": {
+          "VERB": 147,
+          "AUX": 14,
+          "NOUN": 3
+        },
+        "એક": {
+          "NUM": 158,
+          "PROPN": 2
+        },
+        "ગયા": {
+          "AUX": 151,
+          "VERB": 1
+        },
+        "યહ": {
+          "DET": 74,
+          "PRON": 61
+        }
+      }
+    },
+    "hi2gu_test": {
+      "sentences": 1684,
+      "tokens": 35430,
+      "sent_len_mean": 21.0,
+      "sent_len_max": 66,
+      "duplicate_sentences": 1,
+      "multiword_tokens": 0,
+      "upos_distribution": {
+        "NOUN": 8036,
+        "ADP": 7464,
+        "PROPN": 4438,
+        "VERB": 3461,
+        "PUNCT": 2420,
+        "AUX": 2392,
+        "ADJ": 2130,
+        "PRON": 1372,
+        "DET": 744,
+        "NUM": 693,
+        "PART": 677,
+        "SCONJ": 655,
+        "CCONJ": 635,
+        "ADV": 304,
+        "X": 9
+      },
+      "xpos_distribution": {
+        "PSP": 7182,
+        "NN": 7181,
+        "VM": 3643,
+        "NNP": 2846,
+        "SYM": 2420,
+        "VAUX": 2216,
+        "JJ": 1933,
+        "NNPC": 1592,
+        "PRP": 1348,
+        "CC": 1289,
+        "NNC": 851,
+        "QC": 593,
+        "NST": 500,
+        "RP": 487,
+        "DEM": 461,
+        "QF": 280,
+        "NEG": 190,
+        "RB": 135,
+        "QCC": 99,
+        "QO": 57,
+        "JJC": 48,
+        "INTF": 26,
+        "WQ": 21,
+        "RDP": 16,
+        "UNK": 7,
+        "PRPC": 4,
+        "NSTC": 2,
+        "RBC": 1,
+        "QFC": 1,
+        "CCC": 1
+      },
+      "vocab_size": 5228,
+      "ambiguous_word_types": 485,
+      "ambiguous_token_share": 0.416,
+      "top_ambiguous_words": {
+        "કે": {
+          "ADP": 1681,
+          "PROPN": 5
+        },
+        "મેં": {
+          "ADP": 1051,
+          "PROPN": 1
+        },
+        "કી": {
+          "ADP": 864,
+          "VERB": 133,
+          "PROPN": 2
+        },
+        "હૈ": {
+          "AUX": 830,
+          "VERB": 64
+        },
+        "સે": {
+          "ADP": 568,
+          "PART": 19
+        },
+        "કિ": {
+          "SCONJ": 544,
+          "PART": 6
+        },
+        "કા": {
+          "ADP": 436,
+          "PROPN": 2
+        },
+        "ઔર": {
+          "CCONJ": 399,
+          "ADJ": 2,
+          "DET": 9,
+          "ADV": 1,
+          "PROPN": 2,
+          "NOUN": 1
+        },
+        "પર": {
+          "ADP": 403,
+          "CCONJ": 10
+        },
+        "હૈં": {
+          "AUX": 268,
+          "VERB": 12
+        },
+        "ઇસ": {
+          "DET": 248,
+          "PRON": 25
+        },
+        "લિએ": {
+          "ADP": 206,
+          "VERB": 4
+        },
+        "ગયા": {
+          "AUX": 181,
+          "VERB": 2
+        },
+        "કર": {
+          "VERB": 168,
+          "AUX": 9
+        },
+        "એક": {
+          "NUM": 135,
+          "PRON": 2
+        }
+      }
+    },
+    "gujtb_test": {
+      "sentences": 187,
+      "tokens": 1801,
+      "sent_len_mean": 9.6,
+      "sent_len_max": 37,
+      "duplicate_sentences": 0,
+      "multiword_tokens": 84,
+      "upos_distribution": {
+        "NOUN": 423,
+        "PUNCT": 250,
+        "VERB": 214,
+        "AUX": 184,
+        "PROPN": 145,
+        "PRON": 133,
+        "ADJ": 133,
+        "ADP": 70,
+        "ADV": 60,
+        "CCONJ": 50,
+        "PART": 43,
+        "NUM": 40,
+        "DET": 23,
+        "INTJ": 14,
+        "SCONJ": 13,
+        "X": 3,
+        "SYM": 3
+      },
+      "xpos_distribution": "not available",
+      "vocab_size": 1013,
+      "ambiguous_word_types": 48,
+      "ambiguous_token_share": 0.135,
+      "top_ambiguous_words": {
+        "પણ": {
+          "CCONJ": 6,
+          "PART": 16
+        },
+        "એ": {
+          "DET": 5,
+          "PRON": 11,
+          "PART": 1
+        },
+        "ના": {
+          "PART": 6,
+          "ADP": 2,
+          "ADV": 1,
+          "CCONJ": 2,
+          "INTJ": 2
+        },
+        "આ": {
+          "DET": 7,
+          "ADJ": 1,
+          "PRON": 4
+        },
+        "એક": {
+          "DET": 2,
+          "NUM": 9
+        },
+        "કે": {
+          "SCONJ": 6,
+          "CCONJ": 3,
+          "INTJ": 1
+        },
+        "જ": {
+          "PART": 9,
+          "X": 1
+        },
+        "તે": {
+          "DET": 1,
+          "PRON": 8
+        },
+        "સાથે": {
+          "ADP": 7,
+          "ADV": 1
+        },
+        "તો": {
+          "INTJ": 3,
+          "SCONJ": 1,
+          "PART": 4
+        },
+        "શું": {
+          "AUX": 3,
+          "PRON": 3,
+          "DET": 1
+        },
+        "જે": {
+          "PRON": 4,
+          "ADJ": 1,
+          "SCONJ": 1
+        },
+        "પછી": {
+          "ADV": 4,
+          "ADP": 1
+        },
+        "ન": {
+          "PART": 2,
+          "ADV": 3
+        },
+        "ભારતીય": {
+          "PROPN": 1,
+          "ADJ": 4
+        }
+      }
+    }
+  },
+  "hi_split_overlap": {
+    "train&dev": 2,
+    "train&test": 10,
+    "dev&test": 0
+  },
+  "gujtb_token_coverage_by_hi2gu_train_vocab": 0.389,
+  "unmapped_devanagari_chars": {},
+  "upos_tagset_hi_minus_gu": [],
+  "upos_tagset_gu_minus_hi": [
+    "SYM"
+  ],
+  "samples": {
+    "hi2gu_train": [
+      "યહ/DET એશિયા/PROPN કી/ADP સબસે/ADV બડી/ADJ મસ્જિદોં/NOUN મેં/ADP સે/ADP એક/NUM હૈ/AUX ./PUNCT",
+      "ઇસે/PRON નવાબ/NOUN શાહજેહન/PROPN ને/ADP બનવાયા/VERB થા/AUX ./PUNCT",
+      "ઇસકા/PRON પ્રવેશ/NOUN દ્વાર/NOUN દો/NUM મંજિલા/ADJ હૈ/AUX ./PUNCT"
+    ],
+    "gujtb_test": [
+      "છોક્રીએ/NOUN તેની/PRON બહેનપણીને/NOUN પત્ર/NOUN લખ્યો/VERB ./PUNCT",
+      "મને/PRON લાગે/VERB છે/AUX કે/SCONJ વરસાદ/NOUN વરસી/VERB રહ્યો/AUX છે/AUX ./PUNCT",
+      "તેણે/PRON ધુમર્પાન/NOUN અને/CCONJ મદિરાપાન/NOUN છોડવાની/VERB કોશિશ/NOUN કરી/VERB ./PUNCT"
+    ]
+  }
+}

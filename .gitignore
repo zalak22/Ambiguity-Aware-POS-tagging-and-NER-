@@ -1,0 +1,17 @@
+datasets/raw/
+models/checkpoints/
+models/embeddings/
+datasets/processed/embeddings_corpus.txt
+__pycache__/
+*.pyc
+.venv/
+
+# Large dataset files
+datasets/processed/ner/train.jsonl
+datasets/processed/ner/train_150k.jsonl
+
+# Large model files
+models/embeddings/*.model
+models/embeddings/*.npy
+models/embeddings/*.kv
+models/checkpoints/

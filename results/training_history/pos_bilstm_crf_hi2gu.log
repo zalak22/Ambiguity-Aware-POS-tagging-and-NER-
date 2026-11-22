@@ -1,0 +1,50 @@
+run=pos_bilstm_crf_hi2gu device=cuda train=13293 dev=1659 test=1684 gujtb=187 words=9489 chars=87
+preparation: {"train": {"empty_tokens_dropped": 0, "unknown_tag_to_X": 0}, "dev": {"empty_tokens_dropped": 0, "unknown_tag_to_X": 0}, "test": {"empty_tokens_dropped": 0, "unknown_tag_to_X": 0}, "gujtb": {"empty_tokens_dropped": 0, "unknown_tag_to_X": 0}, "train_removed_overlap_with_eval": 13}
+parameters: 2,581,890
+epoch 1: loss 16.4665  dev acc 0.8788  (gujtb 0.4398)  53.2s  *best*
+epoch 2: loss 7.7443  dev acc 0.9218  (gujtb 0.3903)  50.0s  *best*
+epoch 3: loss 5.8740  dev acc 0.9348  (gujtb 0.4042)  51.3s  *best*
+epoch 4: loss 4.9134  dev acc 0.9447  (gujtb 0.3881)  50.2s  *best*
+epoch 5: loss 4.2657  dev acc 0.9482  (gujtb 0.3676)  50.4s  *best*
+epoch 6: loss 3.8139  dev acc 0.9514  (gujtb 0.3559)  51.1s  *best*
+epoch 7: loss 3.4806  dev acc 0.9553  (gujtb 0.4048)  50.2s  *best*
+epoch 8: loss 3.2084  dev acc 0.9586  (gujtb 0.3604)  50.7s  *best*
+epoch 9: loss 2.9538  dev acc 0.9599  (gujtb 0.3687)  50.3s  *best*
+epoch 10: loss 2.8276  dev acc 0.9604  (gujtb 0.3659)  52.8s  *best*
+epoch 11: loss 2.6748  dev acc 0.9627  (gujtb 0.3809)  60.2s  *best*
+epoch 12: loss 2.5619  dev acc 0.9633  (gujtb 0.3626)  57.7s  *best*
+epoch 13: loss 2.4222  dev acc 0.9637  (gujtb 0.3831)  50.0s  *best*
+epoch 14: loss 2.3279  dev acc 0.9645  (gujtb 0.3676)  59.8s  *best*
+epoch 15: loss 2.2036  dev acc 0.9633  (gujtb 0.4042)  73.9s
+epoch 16: loss 2.1393  dev acc 0.9648  (gujtb 0.3781)  74.2s  *best*
+epoch 17: loss 2.0528  dev acc 0.9652  (gujtb 0.3709)  73.7s  *best*
+epoch 18: loss 2.0045  dev acc 0.9660  (gujtb 0.3876)  74.2s  *best*
+epoch 19: loss 1.9522  dev acc 0.9661  (gujtb 0.3676)  73.9s  *best*
+epoch 20: loss 1.9052  dev acc 0.9660  (gujtb 0.3892)  73.7s
+epoch 21: loss 1.8647  dev acc 0.9666  (gujtb 0.3592)  79.2s  *best*
+epoch 22: loss 1.7878  dev acc 0.9668  (gujtb 0.3770)  75.1s  *best*
+epoch 23: loss 1.7510  dev acc 0.9671  (gujtb 0.3770)  76.3s  *best*
+epoch 24: loss 1.7212  dev acc 0.9670  (gujtb 0.3837)  76.1s
+epoch 25: loss 1.6600  dev acc 0.9675  (gujtb 0.4070)  73.5s  *best*
+epoch 26: loss 1.6483  dev acc 0.9666  (gujtb 0.3815)  75.7s
+epoch 27: loss 1.6131  dev acc 0.9665  (gujtb 0.3659)  78.4s
+epoch 28: loss 1.5759  dev acc 0.9678  (gujtb 0.3859)  83.4s  *best*
+epoch 29: loss 1.5587  dev acc 0.9671  (gujtb 0.3720)  89.6s
+epoch 30: loss 1.5072  dev acc 0.9680  (gujtb 0.3720)  104.2s  *best*
+
+best epoch 30
+split       model        acc  macroF1     OOV   ambig  unambig
+hi2gu_dev   bilstm     0.968   0.9219  0.8032  0.9689   0.9824
+hi2gu_dev   MFT       0.9144   0.8426  0.3449  0.8998    0.985
+hi2gu_test  bilstm    0.9689    0.928    0.81  0.9677   0.9859
+hi2gu_test  MFT       0.9152   0.8661  0.3487   0.901   0.9877
+gujtb_test  bilstm     0.372   0.2324  0.2033  0.4159   0.7306
+gujtb_test  MFT        0.432   0.2358  0.2498   0.514   0.8041
+
+gujtb tokens: 1801  oov=1097 ambiguous=214
+gujtb top confusions: {'NOUN->PROPN': 243, 'AUX->VERB': 120, 'VERB->PROPN': 87, 'ADJ->PROPN': 76, 'PRON->PROPN': 52, 'VERB->NOUN': 40, 'ADP->PROPN': 33, 'NOUN->ADJ': 26, 'AUX->PROPN': 25, 'PRON->VERB': 24}
+tags in gujtb never seen in train: ['SYM']
+
+Saved -> D:\Learning\NLP\Gujarati-NLP-Research\models\checkpoints\pos_bilstm_crf_hi2gu\best.pt
+         D:\Learning\NLP\Gujarati-NLP-Research\results\metrics\pos_bilstm_crf_hi2gu.json
+         D:\Learning\NLP\Gujarati-NLP-Research\results\training_history\pos_bilstm_crf_hi2gu.json

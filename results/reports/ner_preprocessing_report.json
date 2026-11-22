@@ -1,0 +1,108 @@
+{
+  "seed": 42,
+  "word_min_freq": 2,
+  "train_raw": 472845,
+  "train_dropped": {
+    "length_mismatch": 0,
+    "unknown_label": 0,
+    "empty_after_cleaning": 0,
+    "empty_tokens_removed": 0,
+    "bio_repaired": 1725
+  },
+  "val_raw": 2389,
+  "val_dropped": {
+    "length_mismatch": 0,
+    "unknown_label": 0,
+    "empty_after_cleaning": 0,
+    "empty_tokens_removed": 0,
+    "bio_repaired": 8
+  },
+  "test_raw": 1076,
+  "test_dropped": {
+    "length_mismatch": 0,
+    "unknown_label": 0,
+    "empty_after_cleaning": 1,
+    "empty_tokens_removed": 42,
+    "bio_repaired": 0
+  },
+  "train_removed": {
+    "overlap_with_val_or_test": 50,
+    "duplicates": 3914
+  },
+  "val_removed_overlap_with_test": 0,
+  "test_internal_duplicates": 47,
+  "test_invalid_bio_kept_as_is": 5,
+  "final": {
+    "train": {
+      "sentences": 468881,
+      "tokens": 6145570,
+      "entities": {
+        "LOC": 235275,
+        "PER": 319366,
+        "ORG": 204034
+      },
+      "oov_rate": 0.0262
+    },
+    "train_150k": {
+      "sentences": 150000,
+      "tokens": 1966568,
+      "entities": {
+        "PER": 102249,
+        "LOC": 75913,
+        "ORG": 64832
+      },
+      "oov_rate": 0.026
+    },
+    "val": {
+      "sentences": 2389,
+      "tokens": 31501,
+      "entities": {
+        "ORG": 1060,
+        "PER": 1615,
+        "LOC": 1208
+      },
+      "oov_rate": 0.0407
+    },
+    "test": {
+      "sentences": 1075,
+      "tokens": 13575,
+      "entities": {
+        "PER": 673,
+        "ORG": 419,
+        "LOC": 645
+      },
+      "oov_rate": 0.0457
+    },
+    "test_dedup": {
+      "sentences": 1028,
+      "tokens": 12964,
+      "entities": {
+        "PER": 646,
+        "ORG": 399,
+        "LOC": 613
+      },
+      "oov_rate": 0.0459
+    }
+  },
+  "vocab": {
+    "words": 124910,
+    "chars": 562,
+    "train_word_types_total": 285956,
+    "labels": {
+      "O": 0,
+      "B-PER": 1,
+      "I-PER": 2,
+      "B-ORG": 3,
+      "I-ORG": 4,
+      "B-LOC": 5,
+      "I-LOC": 6
+    }
+  },
+  "tokenize_example": [
+    "રાહુલ",
+    "અમદાવાદમાં",
+    "રહે",
+    "છે",
+    "."
+  ]
+}

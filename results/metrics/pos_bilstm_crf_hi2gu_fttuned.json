@@ -1,0 +1,796 @@
+{
+  "run": "pos_bilstm_crf_hi2gu_fttuned",
+  "best_epoch": 22,
+  "args": {
+    "epochs": 30,
+    "patience": 5,
+    "batch_size": 32,
+    "lr": 0.001,
+    "dropout": 0.5,
+    "word_dropout": 0.05,
+    "hidden": 200,
+    "word_min_freq": 2,
+    "clip": 5.0,
+    "seed": 42,
+    "limit": null,
+    "run_name": null,
+    "embeddings": "models/embeddings/fasttext_gu_100d.model",
+    "tune_emb": true
+  },
+  "preparation": {
+    "train": {
+      "empty_tokens_dropped": 0,
+      "unknown_tag_to_X": 0
+    },
+    "dev": {
+      "empty_tokens_dropped": 0,
+      "unknown_tag_to_X": 0
+    },
+    "test": {
+      "empty_tokens_dropped": 0,
+      "unknown_tag_to_X": 0
+    },
+    "gujtb": {
+      "empty_tokens_dropped": 0,
+      "unknown_tag_to_X": 0
+    },
+    "train_removed_overlap_with_eval": 13
+  },
+  "tags_never_seen_in_train": [
+    "SYM"
+  ],
+  "bilstm_crf": {
+    "hi2gu_dev": {
+      "accuracy": 0.9717,
+      "macro_f1": 0.9188,
+      "tokens": 35217,
+      "oov": {
+        "accuracy": 0.8199,
+        "tokens": 1438
+      },
+      "ambiguous": {
+        "accuracy": 0.9712,
+        "tokens": 18396
+      },
+      "unambiguous": {
+        "accuracy": 0.9866,
+        "tokens": 15383
+      },
+      "per_tag": {
+        "ADJ": {
+          "precision": 0.9361,
+          "recall": 0.9394,
+          "f1": 0.9378,
+          "support": 2246
+        },
+        "ADP": {
+          "precision": 0.9975,
+          "recall": 0.9978,
+          "f1": 0.9977,
+          "support": 7288
+        },
+        "ADV": {
+          "precision": 0.91,
+          "recall": 0.9007,
+          "f1": 0.9053,
+          "support": 292
+        },
+        "AUX": {
+          "precision": 0.9901,
+          "recall": 0.9938,
+          "f1": 0.9919,
+          "support": 2417
+        },
+        "CCONJ": {
+          "precision": 0.9912,
+          "recall": 0.9956,
+          "f1": 0.9934,
+          "support": 682
+        },
+        "DET": {
+          "precision": 0.9685,
+          "recall": 0.9713,
+          "f1": 0.9699,
+          "support": 697
+        },
+        "NOUN": {
+          "precision": 0.9518,
+          "recall": 0.9585,
+          "f1": 0.9551,
+          "support": 7928
+        },
+        "NUM": {
+          "precision": 0.9818,
+          "recall": 0.9818,
+          "f1": 0.9818,
+          "support": 715
+        },
+        "PART": {
+          "precision": 0.9944,
+          "recall": 0.9875,
+          "f1": 0.991,
+          "support": 722
+        },
+        "PRON": {
+          "precision": 0.9911,
+          "recall": 0.9837,
+          "f1": 0.9874,
+          "support": 1473
+        },
+        "PROPN": {
+          "precision": 0.9313,
+          "recall": 0.9196,
+          "f1": 0.9254,
+          "support": 4214
+        },
+        "PUNCT": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2367
+        },
+        "SCONJ": {
+          "precision": 0.9927,
+          "recall": 0.9927,
+          "f1": 0.9927,
+          "support": 682
+        },
+        "VERB": {
+          "precision": 0.9879,
+          "recall": 0.9845,
+          "f1": 0.9862,
+          "support": 3490
+        },
+        "X": {
+          "precision": 0.125,
+          "recall": 0.25,
+          "f1": 0.1667,
+          "support": 4
+        }
+      },
+      "top_confusions(gold->pred)": {
+        "PROPN->NOUN": 283,
+        "NOUN->PROPN": 228,
+        "NOUN->ADJ": 75,
+        "ADJ->NOUN": 73,
+        "ADJ->PROPN": 46,
+        "PROPN->ADJ": 34,
+        "VERB->AUX": 24,
+        "AUX->VERB": 15,
+        "PRON->DET": 15,
+        "VERB->ADJ": 13
+      }
+    },
+    "hi2gu_test": {
+      "accuracy": 0.97,
+      "macro_f1": 0.9205,
+      "tokens": 35430,
+      "oov": {
+        "accuracy": 0.7927,
+        "tokens": 1500
+      },
+      "ambiguous": {
+        "accuracy": 0.9686,
+        "tokens": 18584
+      },
+      "unambiguous": {
+        "accuracy": 0.989,
+        "tokens": 15346
+      },
+      "per_tag": {
+        "ADJ": {
+          "precision": 0.9234,
+          "recall": 0.9507,
+          "f1": 0.9368,
+          "support": 2130
+        },
+        "ADP": {
+          "precision": 0.996,
+          "recall": 0.9969,
+          "f1": 0.9965,
+          "support": 7464
+        },
+        "ADV": {
+          "precision": 0.9461,
+          "recall": 0.9243,
+          "f1": 0.9351,
+          "support": 304
+        },
+        "AUX": {
+          "precision": 0.9855,
+          "recall": 0.995,
+          "f1": 0.9902,
+          "support": 2392
+        },
+        "CCONJ": {
+          "precision": 0.9859,
+          "recall": 0.9937,
+          "f1": 0.9898,
+          "support": 635
+        },
+        "DET": {
+          "precision": 0.9668,
+          "recall": 0.9785,
+          "f1": 0.9726,
+          "support": 744
+        },
+        "NOUN": {
+          "precision": 0.9529,
+          "recall": 0.9508,
+          "f1": 0.9519,
+          "support": 8036
+        },
+        "NUM": {
+          "precision": 0.9913,
+          "recall": 0.9899,
+          "f1": 0.9906,
+          "support": 693
+        },
+        "PART": {
+          "precision": 0.997,
+          "recall": 0.9852,
+          "f1": 0.9911,
+          "support": 677
+        },
+        "PRON": {
+          "precision": 0.9897,
+          "recall": 0.984,
+          "f1": 0.9868,
+          "support": 1372
+        },
+        "PROPN": {
+          "precision": 0.9249,
+          "recall": 0.9164,
+          "f1": 0.9207,
+          "support": 4438
+        },
+        "PUNCT": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2420
+        },
+        "SCONJ": {
+          "precision": 0.9939,
+          "recall": 0.9908,
+          "f1": 0.9924,
+          "support": 655
+        },
+        "VERB": {
+          "precision": 0.9904,
+          "recall": 0.9821,
+          "f1": 0.9862,
+          "support": 3461
+        },
+        "X": {
+          "precision": 0.1333,
+          "recall": 0.2222,
+          "f1": 0.1667,
+          "support": 9
+        }
+      },
+      "top_confusions(gold->pred)": {
+        "NOUN->PROPN": 287,
+        "PROPN->NOUN": 285,
+        "NOUN->ADJ": 77,
+        "ADJ->NOUN": 68,
+        "PROPN->ADJ": 65,
+        "VERB->AUX": 35,
+        "ADJ->PROPN": 28,
+        "PRON->DET": 14,
+        "AUX->VERB": 12,
+        "NOUN->ADP": 11
+      }
+    },
+    "gujtb_test": {
+      "accuracy": 0.4653,
+      "macro_f1": 0.2924,
+      "tokens": 1801,
+      "oov": {
+        "accuracy": 0.3227,
+        "tokens": 1097
+      },
+      "ambiguous": {
+        "accuracy": 0.4579,
+        "tokens": 214
+      },
+      "unambiguous": {
+        "accuracy": 0.7878,
+        "tokens": 490
+      },
+      "per_tag": {
+        "ADJ": {
+          "precision": 0.2802,
+          "recall": 0.3835,
+          "f1": 0.3238,
+          "support": 133
+        },
+        "ADP": {
+          "precision": 0.3469,
+          "recall": 0.2429,
+          "f1": 0.2857,
+          "support": 70
+        },
+        "ADV": {
+          "precision": 0.24,
+          "recall": 0.1,
+          "f1": 0.1412,
+          "support": 60
+        },
+        "AUX": {
+          "precision": 0.8095,
+          "recall": 0.2772,
+          "f1": 0.413,
+          "support": 184
+        },
+        "CCONJ": {
+          "precision": 0.6667,
+          "recall": 0.08,
+          "f1": 0.1429,
+          "support": 50
+        },
+        "DET": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 23
+        },
+        "INTJ": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 14
+        },
+        "NOUN": {
+          "precision": 0.5342,
+          "recall": 0.4988,
+          "f1": 0.5159,
+          "support": 423
+        },
+        "NUM": {
+          "precision": 0.8929,
+          "recall": 0.625,
+          "f1": 0.7353,
+          "support": 40
+        },
+        "PART": {
+          "precision": 0.4667,
+          "recall": 0.3256,
+          "f1": 0.3836,
+          "support": 43
+        },
+        "PRON": {
+          "precision": 0.4667,
+          "recall": 0.1053,
+          "f1": 0.1718,
+          "support": 133
+        },
+        "PROPN": {
+          "precision": 0.238,
+          "recall": 0.7517,
+          "f1": 0.3615,
+          "support": 145
+        },
+        "PUNCT": {
+          "precision": 1.0,
+          "recall": 0.96,
+          "f1": 0.9796,
+          "support": 250
+        },
+        "SCONJ": {
+          "precision": 0.25,
+          "recall": 0.0769,
+          "f1": 0.1176,
+          "support": 13
+        },
+        "SYM": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "VERB": {
+          "precision": 0.3626,
+          "recall": 0.4439,
+          "f1": 0.3992,
+          "support": 214
+        },
+        "X": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        }
+      },
+      "top_confusions(gold->pred)": {
+        "NOUN->PROPN": 154,
+        "AUX->VERB": 92,
+        "VERB->PROPN": 47,
+        "VERB->NOUN": 44,
+        "ADJ->PROPN": 44,
+        "NOUN->ADJ": 40,
+        "PRON->PROPN": 32,
+        "PRON->VERB": 32,
+        "PRON->NOUN": 27,
+        "VERB->ADJ": 23
+      }
+    }
+  },
+  "most_frequent_tag_baseline": {
+    "hi2gu_dev": {
+      "accuracy": 0.9144,
+      "macro_f1": 0.8426,
+      "tokens": 35217,
+      "oov": {
+        "accuracy": 0.3449,
+        "tokens": 1438
+      },
+      "ambiguous": {
+        "accuracy": 0.8998,
+        "tokens": 18396
+      },
+      "unambiguous": {
+        "accuracy": 0.985,
+        "tokens": 15383
+      },
+      "per_tag": {
+        "ADJ": {
+          "precision": 0.9193,
+          "recall": 0.8776,
+          "f1": 0.8979,
+          "support": 2246
+        },
+        "ADP": {
+          "precision": 0.956,
+          "recall": 0.9909,
+          "f1": 0.9732,
+          "support": 7288
+        },
+        "ADV": {
+          "precision": 0.8101,
+          "recall": 0.4966,
+          "f1": 0.6157,
+          "support": 292
+        },
+        "AUX": {
+          "precision": 0.9258,
+          "recall": 0.971,
+          "f1": 0.9479,
+          "support": 2417
+        },
+        "CCONJ": {
+          "precision": 0.9669,
+          "recall": 0.9853,
+          "f1": 0.976,
+          "support": 682
+        },
+        "DET": {
+          "precision": 0.8472,
+          "recall": 0.9383,
+          "f1": 0.8904,
+          "support": 697
+        },
+        "NOUN": {
+          "precision": 0.8293,
+          "recall": 0.9498,
+          "f1": 0.8855,
+          "support": 7928
+        },
+        "NUM": {
+          "precision": 0.9144,
+          "recall": 0.8517,
+          "f1": 0.882,
+          "support": 715
+        },
+        "PART": {
+          "precision": 0.9895,
+          "recall": 0.9169,
+          "f1": 0.9518,
+          "support": 722
+        },
+        "PRON": {
+          "precision": 0.9825,
+          "recall": 0.9124,
+          "f1": 0.9461,
+          "support": 1473
+        },
+        "PROPN": {
+          "precision": 0.8891,
+          "recall": 0.7038,
+          "f1": 0.7857,
+          "support": 4214
+        },
+        "PUNCT": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2367
+        },
+        "SCONJ": {
+          "precision": 0.9444,
+          "recall": 0.9971,
+          "f1": 0.97,
+          "support": 682
+        },
+        "VERB": {
+          "precision": 0.9702,
+          "recall": 0.8688,
+          "f1": 0.9167,
+          "support": 3490
+        },
+        "X": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 4
+        }
+      },
+      "top_confusions(gold->pred)": {
+        "PROPN->NOUN": 1097,
+        "NOUN->PROPN": 283,
+        "ADJ->NOUN": 204,
+        "VERB->AUX": 185,
+        "VERB->ADP": 155,
+        "ADV->ADP": 121,
+        "PRON->DET": 110,
+        "VERB->NOUN": 106,
+        "PROPN->ADJ": 86,
+        "NUM->NOUN": 76
+      }
+    },
+    "hi2gu_test": {
+      "accuracy": 0.9152,
+      "macro_f1": 0.8661,
+      "tokens": 35430,
+      "oov": {
+        "accuracy": 0.3487,
+        "tokens": 1500
+      },
+      "ambiguous": {
+        "accuracy": 0.901,
+        "tokens": 18584
+      },
+      "unambiguous": {
+        "accuracy": 0.9877,
+        "tokens": 15346
+      },
+      "per_tag": {
+        "ADJ": {
+          "precision": 0.9139,
+          "recall": 0.8972,
+          "f1": 0.9055,
+          "support": 2130
+        },
+        "ADP": {
+          "precision": 0.9573,
+          "recall": 0.9922,
+          "f1": 0.9745,
+          "support": 7464
+        },
+        "ADV": {
+          "precision": 0.8807,
+          "recall": 0.5099,
+          "f1": 0.6458,
+          "support": 304
+        },
+        "AUX": {
+          "precision": 0.9256,
+          "recall": 0.972,
+          "f1": 0.9482,
+          "support": 2392
+        },
+        "CCONJ": {
+          "precision": 0.963,
+          "recall": 0.9827,
+          "f1": 0.9727,
+          "support": 635
+        },
+        "DET": {
+          "precision": 0.849,
+          "recall": 0.9597,
+          "f1": 0.9009,
+          "support": 744
+        },
+        "NOUN": {
+          "precision": 0.8317,
+          "recall": 0.9443,
+          "f1": 0.8844,
+          "support": 8036
+        },
+        "NUM": {
+          "precision": 0.8986,
+          "recall": 0.8947,
+          "f1": 0.8966,
+          "support": 693
+        },
+        "PART": {
+          "precision": 0.9935,
+          "recall": 0.9099,
+          "f1": 0.9499,
+          "support": 677
+        },
+        "PRON": {
+          "precision": 0.9842,
+          "recall": 0.9052,
+          "f1": 0.9431,
+          "support": 1372
+        },
+        "PROPN": {
+          "precision": 0.8926,
+          "recall": 0.7098,
+          "f1": 0.7908,
+          "support": 4438
+        },
+        "PUNCT": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 2420
+        },
+        "SCONJ": {
+          "precision": 0.9561,
+          "recall": 0.9985,
+          "f1": 0.9768,
+          "support": 655
+        },
+        "VERB": {
+          "precision": 0.9718,
+          "recall": 0.8662,
+          "f1": 0.916,
+          "support": 3461
+        },
+        "X": {
+          "precision": 0.25,
+          "recall": 0.3333,
+          "f1": 0.2857,
+          "support": 9
+        }
+      },
+      "top_confusions(gold->pred)": {
+        "PROPN->NOUN": 1127,
+        "NOUN->PROPN": 316,
+        "VERB->AUX": 185,
+        "ADJ->NOUN": 167,
+        "VERB->ADP": 138,
+        "VERB->NOUN": 131,
+        "ADV->ADP": 118,
+        "PRON->DET": 117,
+        "PROPN->ADJ": 80,
+        "NOUN->ADJ": 72
+      }
+    },
+    "gujtb_test": {
+      "accuracy": 0.432,
+      "macro_f1": 0.2358,
+      "tokens": 1801,
+      "oov": {
+        "accuracy": 0.2498,
+        "tokens": 1097
+      },
+      "ambiguous": {
+        "accuracy": 0.514,
+        "tokens": 214
+      },
+      "unambiguous": {
+        "accuracy": 0.8041,
+        "tokens": 490
+      },
+      "per_tag": {
+        "ADJ": {
+          "precision": 0.6444,
+          "recall": 0.218,
+          "f1": 0.3258,
+          "support": 133
+        },
+        "ADP": {
+          "precision": 0.5667,
+          "recall": 0.2429,
+          "f1": 0.34,
+          "support": 70
+        },
+        "ADV": {
+          "precision": 0.6,
+          "recall": 0.05,
+          "f1": 0.0923,
+          "support": 60
+        },
+        "AUX": {
+          "precision": 0.65,
+          "recall": 0.0707,
+          "f1": 0.1275,
+          "support": 184
+        },
+        "CCONJ": {
+          "precision": 0.8333,
+          "recall": 0.1,
+          "f1": 0.1786,
+          "support": 50
+        },
+        "DET": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 23
+        },
+        "INTJ": {
+          "precision": 1.0,
+          "recall": 0.1429,
+          "f1": 0.25,
+          "support": 14
+        },
+        "NOUN": {
+          "precision": 0.3114,
+          "recall": 0.9196,
+          "f1": 0.4653,
+          "support": 423
+        },
+        "NUM": {
+          "precision": 0.9,
+          "recall": 0.45,
+          "f1": 0.6,
+          "support": 40
+        },
+        "PART": {
+          "precision": 0.2222,
+          "recall": 0.0465,
+          "f1": 0.0769,
+          "support": 43
+        },
+        "PRON": {
+          "precision": 0.1429,
+          "recall": 0.0075,
+          "f1": 0.0143,
+          "support": 133
+        },
+        "PROPN": {
+          "precision": 0.3982,
+          "recall": 0.3103,
+          "f1": 0.3488,
+          "support": 145
+        },
+        "PUNCT": {
+          "precision": 1.0,
+          "recall": 0.952,
+          "f1": 0.9754,
+          "support": 250
+        },
+        "SCONJ": {
+          "precision": 0.125,
+          "recall": 0.0769,
+          "f1": 0.0952,
+          "support": 13
+        },
+        "SYM": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        },
+        "VERB": {
+          "precision": 0.375,
+          "recall": 0.0701,
+          "f1": 0.1181,
+          "support": 214
+        },
+        "X": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3
+        }
+      },
+      "top_confusions(gold->pred)": {
+        "VERB->NOUN": 192,
+        "AUX->NOUN": 166,
+        "PRON->NOUN": 104,
+        "PROPN->NOUN": 95,
+        "ADJ->NOUN": 78,
+        "ADP->NOUN": 51,
+        "ADV->NOUN": 50,
+        "CCONJ->NOUN": 42,
+        "PART->NOUN": 33,
+        "NOUN->PROPN": 20
+      }
+    }
+  }
+}

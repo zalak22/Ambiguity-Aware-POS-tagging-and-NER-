@@ -1,0 +1,510 @@
+{
+  "files": {
+    "datasets\\raw\\naamapadam\\gu_extracted\\gu_test.json": {
+      "records": 1076,
+      "fields": {
+        "words": 1076,
+        "ner": 1076
+      },
+      "token_field": "words",
+      "label_field": "ner",
+      "empty": 0,
+      "token_label_length_mismatch": 0,
+      "exact_duplicate_sentences": 47,
+      "tokens_total": 13617,
+      "sent_len": {
+        "mean": 12.7,
+        "median": 10.0,
+        "max": 100,
+        "p95": 30
+      },
+      "raw_label_values": {
+        "O": 10794,
+        "B-PER": 673,
+        "I-PER": 579,
+        "B-ORG": 419,
+        "B-LOC": 645,
+        "I-ORG": 401,
+        "I-LOC": 106
+      },
+      "tag_distribution": {
+        "O": 10794,
+        "B-PER": 673,
+        "I-PER": 579,
+        "B-ORG": 419,
+        "B-LOC": 645,
+        "I-ORG": 401,
+        "I-LOC": 106
+      },
+      "entities_by_type": {
+        "PER": 673,
+        "ORG": 419,
+        "LOC": 645
+      },
+      "invalid_BIO_transitions(I-without-B)": 5,
+      "samples": [
+        {
+          "tokens": [
+            "તેજસ્વી",
+            "રંગીન",
+            "શાકભાજી"
+          ],
+          "labels": [
+            "O",
+            "O",
+            "O"
+          ]
+        },
+        {
+          "tokens": [
+            "સુશાંતસિંહ",
+            "રાજપૂત",
+            "રિહા",
+            "ચક્રવર્તી",
+            "સાથે",
+            "ડેટ",
+            "કરી",
+            "રહી",
+            "હોવાની",
+            "ચર્ચા",
+            "ચાલી",
+            "રહી",
+            "છે"
+          ],
+          "labels": [
+            "B-PER",
+            "I-PER",
+            "B-PER",
+            "I-PER",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        },
+        {
+          "tokens": [
+            "મંત્રાલયનો",
+            "ડેટા",
+            "માત્ર",
+            "સરકારી",
+            "ડોક્ટરો",
+            "માટે",
+            "જ",
+            "છે",
+            "."
+          ],
+          "labels": [
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        },
+        {
+          "tokens": [
+            "અને",
+            "NDRFને",
+            "પણ",
+            "હાઇ",
+            "એલર્ટમાં",
+            "તૈયાર",
+            "રાખવામાં",
+            "આવ્યું",
+            "છે",
+            "."
+          ],
+          "labels": [
+            "O",
+            "B-ORG",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        },
+        {
+          "tokens": [
+            "મોદીનું",
+            "માલે",
+            "એરપોર્ટ",
+            "પર",
+            "વિદેશ",
+            "પ્રધાન",
+            "અબ્દુલ્લા",
+            "શાહિદે",
+            "સ્વાગત",
+            "કર્યું",
+            "હતું",
+            "."
+          ],
+          "labels": [
+            "B-PER",
+            "B-LOC",
+            "O",
+            "O",
+            "O",
+            "O",
+            "B-PER",
+            "I-PER",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        }
+      ]
+    },
+    "datasets\\raw\\naamapadam\\gu_extracted\\gu_test.tsv": "unreadable as JSON: Expecting value: line 1 column 1 (char 0)",
+    "datasets\\raw\\naamapadam\\gu_extracted\\gu_train.json": {
+      "records": 472845,
+      "fields": {
+        "words": 472845,
+        "ner": 472845
+      },
+      "token_field": "words",
+      "label_field": "ner",
+      "empty": 0,
+      "token_label_length_mismatch": 0,
+      "exact_duplicate_sentences": 3548,
+      "tokens_total": 6218281,
+      "sent_len": {
+        "mean": 13.2,
+        "median": 11,
+        "max": 100,
+        "p95": 31
+      },
+      "raw_label_values": {
+        "O": 4923455,
+        "B-LOC": 238145,
+        "I-LOC": 56196,
+        "B-PER": 321674,
+        "B-ORG": 205652,
+        "I-ORG": 190116,
+        "I-PER": 283043
+      },
+      "tag_distribution": {
+        "O": 4923455,
+        "B-LOC": 238145,
+        "I-LOC": 56196,
+        "B-PER": 321674,
+        "B-ORG": 205652,
+        "I-ORG": 190116,
+        "I-PER": 283043
+      },
+      "entities_by_type": {
+        "LOC": 238145,
+        "PER": 321674,
+        "ORG": 205652
+      },
+      "invalid_BIO_transitions(I-without-B)": 1725,
+      "samples": [
+        {
+          "tokens": [
+            "લક્ઝરી",
+            "સેન્ટ",
+            "એન્ડ્રુ",
+            "માતાનો",
+            "ચર્ચ"
+          ],
+          "labels": [
+            "O",
+            "B-LOC",
+            "I-LOC",
+            "I-LOC",
+            "I-LOC"
+          ]
+        },
+        {
+          "tokens": [
+            "આ",
+            "દિવસે",
+            "ભગવાન",
+            "ગણેશની",
+            "પૂજાનું",
+            "વધારે",
+            "મહત્ત્વ",
+            "છે",
+            "."
+          ],
+          "labels": [
+            "O",
+            "O",
+            "O",
+            "B-PER",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        },
+        {
+          "tokens": [
+            "આદુ",
+            "પાવડર",
+            "-",
+            "1",
+            "ટીસ્પૂન"
+          ],
+          "labels": [
+            "O",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        },
+        {
+          "tokens": [
+            "તે",
+            "સમયે",
+            "સુભાષ",
+            "કાલાબુરાગી",
+            "શહેરમાં",
+            "MR",
+            "મેડિકલ",
+            "કોલેજના",
+            "ત્રીજા",
+            "વર્ષનો",
+            "વિદ્યાર્થી",
+            "હતો",
+            "."
+          ],
+          "labels": [
+            "O",
+            "O",
+            "B-PER",
+            "B-PER",
+            "O",
+            "B-ORG",
+            "I-ORG",
+            "I-ORG",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        },
+        {
+          "tokens": [
+            "ઓરેન્જ",
+            "ઓરા"
+          ],
+          "labels": [
+            "B-ORG",
+            "I-ORG"
+          ]
+        }
+      ]
+    },
+    "datasets\\raw\\naamapadam\\gu_extracted\\gu_val.json": {
+      "records": 2389,
+      "fields": {
+        "words": 2389,
+        "ner": 2389
+      },
+      "token_field": "words",
+      "label_field": "ner",
+      "empty": 0,
+      "token_label_length_mismatch": 0,
+      "exact_duplicate_sentences": 0,
+      "tokens_total": 31501,
+      "sent_len": {
+        "mean": 13.2,
+        "median": 11,
+        "max": 83,
+        "p95": 31
+      },
+      "raw_label_values": {
+        "B-ORG": 1056,
+        "O": 24957,
+        "B-PER": 1612,
+        "I-PER": 1405,
+        "B-LOC": 1207,
+        "I-LOC": 305,
+        "I-ORG": 959
+      },
+      "tag_distribution": {
+        "B-ORG": 1056,
+        "O": 24957,
+        "B-PER": 1612,
+        "I-PER": 1405,
+        "B-LOC": 1207,
+        "I-LOC": 305,
+        "I-ORG": 959
+      },
+      "entities_by_type": {
+        "ORG": 1056,
+        "PER": 1612,
+        "LOC": 1207
+      },
+      "invalid_BIO_transitions(I-without-B)": 8,
+      "samples": [
+        {
+          "tokens": [
+            "રેડમી",
+            "નોટ",
+            "8",
+            "પ્રોનાં",
+            "બેઝિક",
+            "સ્પેસિફિકેશન"
+          ],
+          "labels": [
+            "B-ORG",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        },
+        {
+          "tokens": [
+            "કોંગ્રેસ",
+            "વાળા",
+            "આ",
+            "વિષયને",
+            "ભટકાવવા",
+            "માંગે",
+            "છે",
+            "."
+          ],
+          "labels": [
+            "B-ORG",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        },
+        {
+          "tokens": [
+            "પરીક્ષાની",
+            "આગામી",
+            "તારીખ",
+            "ટૂંક",
+            "સમયમાં",
+            "જ",
+            "રજૂ",
+            "કરવામાં",
+            "આવશે",
+            "."
+          ],
+          "labels": [
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        },
+        {
+          "tokens": [
+            "તે",
+            "સિવાય",
+            "જસપ્રિત",
+            "બુમરાહ",
+            "અને",
+            "ભુવનેશ્વર",
+            "કુમારે",
+            "બે",
+            "-",
+            "બે",
+            "વિકેટ",
+            "ઝડપી",
+            "."
+          ],
+          "labels": [
+            "O",
+            "O",
+            "B-PER",
+            "I-PER",
+            "O",
+            "B-PER",
+            "I-PER",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        },
+        {
+          "tokens": [
+            "કેટ",
+            "ગેરી",
+            "હડસન",
+            "(",
+            "જન્મ",
+            "19",
+            "એપ્રિલ",
+            ",",
+            "1979",
+            ")",
+            "એક",
+            "અમેરિકન",
+            "અભિનેત્રી",
+            "છે",
+            "."
+          ],
+          "labels": [
+            "B-PER",
+            "I-PER",
+            "I-PER",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O",
+            "O"
+          ]
+        }
+      ]
+    }
+  },
+  "label_order_assumed": [
+    "O",
+    "B-PER",
+    "I-PER",
+    "B-ORG",
+    "I-ORG",
+    "B-LOC",
+    "I-LOC"
+  ],
+  "cross_file_overlap": {
+    "gu_test.json & gu_train.json": 9,
+    "gu_test.json & gu_val.json": 0,
+    "gu_train.json & gu_val.json": 33
+  }
+}

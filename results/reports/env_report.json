@@ -1,0 +1,43 @@
+{
+  "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "executable": "D:\\Learning\\NLP\\Gujarati-NLP-Research\\.venv\\Scripts\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "machine": "AMD64",
+  "nvidia_smi": "NVIDIA GeForce RTX 3050 A Laptop GPU, 591.66, 4094 MiB, 1329 MiB, 8.9",
+  "ram_total_gb": 25.4,
+  "ram_available_gb": 12.4,
+  "cpu_logical_cores": 8,
+  "libraries": {
+    "torch": "2.11.0+cu128",
+    "numpy": "2.4.6",
+    "pandas": "3.1.1",
+    "sklearn": "1.9.1",
+    "seqeval": "installed",
+    "matplotlib": "3.11.2",
+    "seaborn": "0.13.2",
+    "tqdm": "4.70.1",
+    "huggingface_hub": "2.4.0",
+    "datasets": "installed",
+    "pytorch_crf": null,
+    "torchcrf": "0.7.2"
+  },
+  "torch": {
+    "version": "2.11.0+cu128",
+    "built_cuda": "12.8",
+    "cudnn": 91900,
+    "cuda_available": true,
+    "device": "NVIDIA GeForce RTX 3050 A Laptop GPU",
+    "capability": "8.9",
+    "vram_gb": 4.29,
+    "arch_list": [
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "sm_100",
+      "sm_120"
+    ],
+    "bilstm_smoke_test": "OK, 20 fwd+bwd steps in 0.30s",
+    "bf16_supported": true
+  }
+}

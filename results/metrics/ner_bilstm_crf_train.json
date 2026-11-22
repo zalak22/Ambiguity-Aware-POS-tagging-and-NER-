@@ -1,0 +1,102 @@
+{
+  "run": "ner_bilstm_crf_train",
+  "best_epoch": 15,
+  "args": {
+    "train": "train",
+    "epochs": 15,
+    "patience": 3,
+    "batch_size": 64,
+    "lr": 0.001,
+    "dropout": 0.5,
+    "word_dropout": 0.05,
+    "hidden": 200,
+    "clip": 5.0,
+    "seed": 42,
+    "limit": null,
+    "run_name": null
+  },
+  "val": {
+    "precision": 0.7821,
+    "recall": 0.7785,
+    "f1": 0.7803,
+    "token_accuracy": 0.9344,
+    "per_type": {
+      "LOC": {
+        "precision": 0.7937,
+        "recall": 0.8154,
+        "f1-score": 0.8044,
+        "support": 1208.0
+      },
+      "ORG": {
+        "precision": 0.7305,
+        "recall": 0.6906,
+        "f1-score": 0.71,
+        "support": 1060.0
+      },
+      "PER": {
+        "precision": 0.8052,
+        "recall": 0.8087,
+        "f1-score": 0.8069,
+        "support": 1615.0
+      }
+    },
+    "oov_entity_token_accuracy": 0.6779,
+    "oov_entity_tokens": 565
+  },
+  "test": {
+    "precision": 0.8164,
+    "recall": 0.8324,
+    "f1": 0.8243,
+    "token_accuracy": 0.9418,
+    "per_type": {
+      "LOC": {
+        "precision": 0.8444,
+        "recall": 0.8053,
+        "f1-score": 0.8244,
+        "support": 647.0
+      },
+      "ORG": {
+        "precision": 0.6883,
+        "recall": 0.7589,
+        "f1-score": 0.7219,
+        "support": 419.0
+      },
+      "PER": {
+        "precision": 0.8766,
+        "recall": 0.9038,
+        "f1-score": 0.89,
+        "support": 676.0
+      }
+    },
+    "oov_entity_token_accuracy": 0.7073,
+    "oov_entity_tokens": 246
+  },
+  "test_dedup": {
+    "precision": 0.822,
+    "recall": 0.8388,
+    "f1": 0.8304,
+    "token_accuracy": 0.9432,
+    "per_type": {
+      "LOC": {
+        "precision": 0.8574,
+        "recall": 0.8114,
+        "f1-score": 0.8338,
+        "support": 615.0
+      },
+      "ORG": {
+        "precision": 0.6914,
+        "recall": 0.7694,
+        "f1-score": 0.7284,
+        "support": 399.0
+      },
+      "PER": {
+        "precision": 0.8778,
+        "recall": 0.9076,
+        "f1-score": 0.8924,
+        "support": 649.0
+      }
+    },
+    "oov_entity_token_accuracy": 0.7013,
+    "oov_entity_tokens": 231
+  }
+}

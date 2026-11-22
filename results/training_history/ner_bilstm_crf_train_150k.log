@@ -1,0 +1,108 @@
+run=ner_bilstm_crf_train_150k device=cuda train=150000 val=2389 test=1075
+parameters: 14,143,470
+epoch 1: loss 5.1260  val P/R/F1 0.7316/0.6122/0.6666  293.0s  *best*
+epoch 2: loss 3.2206  val P/R/F1 0.7210/0.6961/0.7083  295.1s  *best*
+epoch 3: loss 2.8256  val P/R/F1 0.7456/0.7149/0.7300  254.4s  *best*
+epoch 4: loss 2.6220  val P/R/F1 0.7456/0.7358/0.7406  252.8s  *best*
+epoch 5: loss 2.5007  val P/R/F1 0.7392/0.7468/0.7430  250.3s  *best*
+epoch 6: loss 2.4021  val P/R/F1 0.7516/0.7440/0.7478  257.5s  *best*
+epoch 7: loss 2.3273  val P/R/F1 0.7605/0.7417/0.7510  245.5s  *best*
+epoch 8: loss 2.2725  val P/R/F1 0.7588/0.7463/0.7525  235.8s  *best*
+epoch 9: loss 2.2168  val P/R/F1 0.7617/0.7492/0.7554  247.1s  *best*
+epoch 10: loss 2.1753  val P/R/F1 0.7553/0.7569/0.7561  253.2s  *best*
+epoch 11: loss 2.1386  val P/R/F1 0.7722/0.7561/0.7641  700.9s  *best*
+epoch 12: loss 2.1030  val P/R/F1 0.7645/0.7600/0.7622  290.6s
+epoch 13: loss 2.0737  val P/R/F1 0.7611/0.7605/0.7608  332.6s
+epoch 14: loss 2.0100  val P/R/F1 0.7693/0.7600/0.7646  288.7s  *best*
+epoch 15: loss 1.9780  val P/R/F1 0.7673/0.7641/0.7657  290.7s  *best*
+{
+  "best_epoch": 15,
+  "val": {
+    "precision": 0.7673,
+    "recall": 0.7641,
+    "f1": 0.7657,
+    "token_accuracy": 0.9305,
+    "per_type": {
+      "LOC": {
+        "precision": 0.7837,
+        "recall": 0.7889,
+        "f1-score": 0.7863,
+        "support": 1208.0
+      },
+      "ORG": {
+        "precision": 0.6931,
+        "recall": 0.6774,
+        "f1-score": 0.6851,
+        "support": 1060.0
+      },
+      "PER": {
+        "precision": 0.8025,
+        "recall": 0.8025,
+        "f1-score": 0.8025,
+        "support": 1615.0
+      }
+    },
+    "oov_entity_token_accuracy": 0.685,
+    "oov_entity_tokens": 565
+  },
+  "test": {
+    "precision": 0.7975,
+    "recall": 0.8048,
+    "f1": 0.8011,
+    "token_accuracy": 0.9403,
+    "per_type": {
+      "LOC": {
+        "precision": 0.825,
+        "recall": 0.7651,
+        "f1-score": 0.7939,
+        "support": 647.0
+      },
+      "ORG": {
+        "precision": 0.6631,
+        "recall": 0.7375,
+        "f1-score": 0.6983,
+        "support": 419.0
+      },
+      "PER": {
+        "precision": 0.8642,
+        "recall": 0.8846,
+        "f1-score": 0.8743,
+        "support": 676.0
+      }
+    },
+    "oov_entity_token_accuracy": 0.7114,
+    "oov_entity_tokens": 246
+  },
+  "test_dedup": {
+    "precision": 0.8013,
+    "recall": 0.81,
+    "f1": 0.8056,
+    "token_accuracy": 0.9415,
+    "per_type": {
+      "LOC": {
+        "precision": 0.8339,
+        "recall": 0.7675,
+        "f1-score": 0.7993,
+        "support": 615.0
+      },
+      "ORG": {
+        "precision": 0.6659,
+        "recall": 0.7494,
+        "f1-score": 0.7052,
+        "support": 399.0
+      },
+      "PER": {
+        "precision": 0.8649,
+        "recall": 0.8875,
+        "f1-score": 0.876,
+        "support": 649.0
+      }
+    },
+    "oov_entity_token_accuracy": 0.7056,
+    "oov_entity_tokens": 231
+  }
+}
+
+Saved -> D:\Learning\NLP\Gujarati-NLP-Research\models\checkpoints\ner_bilstm_crf_train_150k\best.pt
+         D:\Learning\NLP\Gujarati-NLP-Research\results\metrics\ner_bilstm_crf_train_150k.json
+         D:\Learning\NLP\Gujarati-NLP-Research\results\training_history\ner_bilstm_crf_train_150k.json

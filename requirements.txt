@@ -1,0 +1,15 @@
+# Install PyTorch FIRST with the CUDA wheel matching your GPU (see report), e.g.:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+numpy
+pandas
+scikit-learn
+seqeval
+pytorch-crf
+gensim>=4.4.0
+matplotlib
+seaborn
+tqdm
+psutil
+huggingface_hub
+pyyaml
+streamlit

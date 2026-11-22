@@ -1,0 +1,62 @@
+{
+  "tokens": 1801,
+  "lexicon_size": 129,
+  "tokens_covered_by_lexicon": 391,
+  "raw": {
+    "accuracy": 0.4653,
+    "predicted_PROPN": 458,
+    "PROPN_precision": 0.238,
+    "PROPN_recall": 0.7517,
+    "top_confusions": {
+      "NOUN->PROPN": 154,
+      "AUX->VERB": 92,
+      "VERB->PROPN": 47,
+      "VERB->NOUN": 44,
+      "ADJ->PROPN": 44,
+      "NOUN->ADJ": 40
+    }
+  },
+  "lexicon": {
+    "accuracy": 0.6141,
+    "predicted_PROPN": 400,
+    "PROPN_precision": 0.2775,
+    "PROPN_recall": 0.7655,
+    "top_confusions": {
+      "NOUN->PROPN": 142,
+      "VERB->PROPN": 45,
+      "VERB->NOUN": 41,
+      "ADJ->PROPN": 41,
+      "NOUN->ADJ": 39,
+      "AUX->VERB": 25
+    }
+  },
+  "ner": {
+    "accuracy": 0.5475,
+    "predicted_PROPN": 153,
+    "PROPN_precision": 0.7582,
+    "PROPN_recall": 0.8,
+    "top_confusions": {
+      "AUX->VERB": 94,
+      "VERB->NOUN": 69,
+      "NOUN->ADJ": 52,
+      "ADJ->NOUN": 48,
+      "PRON->NOUN": 47,
+      "PRON->VERB": 37
+    }
+  },
+  "lexicon+ner": {
+    "accuracy": 0.6868,
+    "predicted_PROPN": 153,
+    "PROPN_precision": 0.7582,
+    "PROPN_recall": 0.8,
+    "top_confusions": {
+      "VERB->NOUN": 64,
+      "NOUN->ADJ": 48,
+      "ADJ->NOUN": 46,
+      "VERB->ADJ": 30,
+      "NOUN->PROPN": 28,
+      "AUX->VERB": 27
+    }
+  },
+  "gold_PROPN": 145
+}

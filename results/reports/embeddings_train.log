@@ -1,0 +1,41 @@
+corpus: {'naamapadam_train': {'sentences': 468881, 'tokens': 6145570}, 'hi2gu_train': {'sentences': 13306, 'tokens': 281057}}
+{
+  "seed": 42,
+  "sources": {
+    "naamapadam_train": {
+      "sentences": 468881,
+      "tokens": 6145570
+    },
+    "hi2gu_train": {
+      "sentences": 13306,
+      "tokens": 281057
+    }
+  },
+  "params": {
+    "vector_size": 100,
+    "window": 5,
+    "min_count": 3,
+    "sg": 1,
+    "epochs": 5,
+    "min_n": 2,
+    "max_n": 5,
+    "bucket": 500000,
+    "workers": 8,
+    "seed": 42
+  },
+  "train_seconds": 127.2,
+  "vocab_size": 87680,
+  "gujtb_token_coverage_full_word": 0.9345,
+  "gujtb_token_coverage_note": "the rest still get vectors from character n-grams"
+}
+  અમદાવાદ: અમદાવદ, અમદાવાદથી, મહેમદાવાદ, અમદાવાદને, અમદાવાદનો, અમદાવાદની
+  છે: છેે, સાછે, પહેલેથી, એકસમયે, કયારે, તે
+  ગયો: ગયેલો, ગમ્યો, ગબડ્યો, છૂટ્યો, તૂટ્યો, ગગડ્યો
+  સરકાર: સરકારેં, સરકારથી, સરકારોં, સરકારોથી, સરકારનુ, સરકારો
+  મોટું: મોટુ, સૌથું, વિશ્વનું, દુનિયાનું, મોજું, ત્રીજું
+  અને: તથા, અનેે, તેમજ, જેમાં, વિગેરેમાં, જેમા
+  રાહુલ: Nextરાહુલ, રાહુલજી, રાહુ, રાહુલે, રાહુલના, ગાંધી
+  માં: 3Dમાં, ધડકમાં, કલંકમાં, રિમેકમાં, કેડરમાં, રીમેકમાં
+
+Saved -> D:\Learning\NLP\Gujarati-NLP-Research\models\embeddings\fasttext_gu_100d.model
+         D:\Learning\NLP\Gujarati-NLP-Research\results\reports\embeddings_report.json
