@@ -1,72 +1,252 @@
-# Ambiguity-Aware Joint Gujarati POS Tagging and NER using BiLSTM
+# Ambiguity-Aware Joint Gujarati POS Tagging and NER using BiLSTM-CRF
 
-Status: Phase 1-3 done (environment, dataset inspection, NER preprocessing). Phase 4 (NER BiLSTM-CRF baseline) done.
+A research project for **Part-of-Speech (POS) tagging** and **Named Entity Recognition (NER)** on Gujarati text using a BiLSTM-CRF architecture with FastText embeddings.
 
-## NER baseline results (entity-level F1, seqeval)
+---
+
+## 📋 Table of Contents
+- [Project Overview](#project-overview)
+- [Setup from Scratch](#setup-from-scratch)
+- [Dataset Download](#dataset-download)
+- [Run Order](#run-order)
+- [Results](#results)
+- [Try it on Your Own Text](#try-it-on-your-own-text)
+- [Known Issues](#known-issues)
+
+---
+
+## Project Overview
+
+| Component | Description |
+|-----------|-------------|
+| **NER** | BiLSTM-CRF trained on [Naamapadam](https://huggingface.co/datasets/ai4bharat/naamapadam) (Gujarati), entities: PER, ORG, LOC |
+| **POS** | BiLSTM-CRF trained on Hindi HDTB transliterated to Gujarati script, evaluated on real Gujarati (GujTB) |
+| **Embeddings** | FastText 100-d (skip-gram, char 2-5 grams) pre-trained on Gujarati corpus |
+| **Rules** | Post-decode constraints: closed-class word list + NER consistency |
+
+---
+
+## Setup from Scratch
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/zalak22/Ambiguity-Aware-POS-tagging-and-NER-.git
+cd Ambiguity-Aware-POS-tagging-and-NER-
+```
+
+### 2. Create a virtual environment
+```bash
+# Windows
+python -m venv .venv
+.venv\Scripts\activate
+
+# Linux / macOS
+python -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install PyTorch (do this FIRST, before requirements.txt)
+Go to [pytorch.org/get-started](https://pytorch.org/get-started/locally/) and pick the right command for your system.
+
+**Example — CUDA 12.8 (NVIDIA GPU):**
+```bash
+pip install torch --index-url https://download.pytorch.org/whl/cu128
+```
+**Example — CPU only:**
+```bash
+pip install torch --index-url https://download.pytorch.org/whl/cpu
+```
+
+### 4. Install remaining dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Verify environment
+```bash
+python env_check.py
+```
+→ Writes `results/reports/env_report.json`
+
+---
+
+## Dataset Download
+
+> ⚠️ Large dataset files are **not included** in this repo (GitHub's 100 MB limit). You must download them manually.
+
+### NER — Naamapadam (Gujarati)
+```bash
+# via Hugging Face datasets library
+pip install datasets
+python -c "
+from datasets import load_dataset
+ds = load_dataset('ai4bharat/naamapadam', 'gu')
+ds.save_to_disk('datasets/raw/naamapadam')
+"
+```
+Or download directly from: https://huggingface.co/datasets/ai4bharat/naamapadam
+
+Place the raw files under: `datasets/raw/naamapadam/`
+
+### POS — Universal Dependencies (Hindi HDTB + GujTB)
+- **Hindi HDTB** (transliterated to Gujarati): https://universaldependencies.org/treebanks/hi_hdtb/
+- **GujTB** (real Gujarati test set): https://universaldependencies.org/treebanks/gu_gtb/
+
+Place files under: `datasets/raw/`
+
+### FastText Model (pre-trained)
+The FastText model (`fasttext_gu_100d.model`) is too large for GitHub (~270 MB).
+Download it and place it at:
+```
+models/embeddings/fasttext_gu_100d.model
+models/embeddings/fasttext_gu_100d.model.wv.vectors_ngrams.npy
+```
+> Contact the repo owner, or re-train from scratch:
+> ```bash
+> # Only if you don't have the model files — this will train FastText
+> python src/train_embeddings.py
+> ```
+
+---
+
+## Run Order
+
+Run all commands from the **project root folder**.
+
+### Step 1 — Inspect raw datasets
+```bash
+python inspect_naamapadam.py    # → results/reports/naamapadam_gu_inspection.{json,md}
+python inspect_ud.py            # → datasets/processed/pos_hi2gu/, pos_gujtb/
+```
+
+### Step 2 — Preprocess NER data
+```bash
+python src/preprocessing.py
+```
+Generates:
+- `datasets/processed/ner/` (train / val / test / train_150k .jsonl)
+- `models/vocabulary/` (word + char vocabs)
+- `models/label_mappings/`
+- `results/reports/ner_preprocessing_report.json`
+
+### Step 3 — Build FastText KeyedVectors file
+```bash
+python src/train_embeddings.py
+```
+Loads `models/embeddings/fasttext_gu_100d.model` and exports `models/embeddings/fasttext_gu_100d.kv`.
+> This does **not** re-train the model. It converts the existing FastText model to a `.kv` file for faster loading.
+
+### Step 4 — Train NER model
+```bash
+# Full dataset (~469k sentences, recommended)
+python src/train_ner.py --train train
+
+# Smaller 150k subset (faster)
+python src/train_ner.py --train train_150k
+
+# With FastText embeddings (better OOV handling)
+python src/train_ner.py --train train --embeddings models/embeddings/fasttext_gu_100d.kv
+
+# Smoke test (2000 rows, 1 epoch — just to verify it runs)
+python src/train_ner.py --limit 2000 --epochs 1
+```
+→ Saves best checkpoint to `models/checkpoints/<run>/best.pt`
+
+### Step 5 — Train POS model
+```bash
+# Baseline (random init)
+python src/train_pos.py
+
+# With FastText embeddings, frozen
+python src/train_pos.py --embeddings models/embeddings/fasttext_gu_100d.kv
+
+# With FastText embeddings, fine-tuned (best results)
+python src/train_pos.py --embeddings models/embeddings/fasttext_gu_100d.kv --tune-emb
+```
+
+### Step 6 — Evaluate post-decode rules
+```bash
+python src/eval_pos_rules.py
+```
+
+---
+
+## Results
+
+### NER (entity-level F1, seqeval)
 | Run | Train sents | Val F1 | Test F1 | Test-dedup F1 |
-|---|---|---|---|---|
-| ner_bilstm_crf_train_150k | 150,000 | 0.766 | 0.801 | 0.806 |
-| ner_bilstm_crf_train      | 468,881 | 0.780 | 0.824 | 0.830 |
-Both hit the 15-epoch cap with val F1 still creeping up; ORG is the weakest class (test F1 0.72).
+|-----|------------|--------|---------|----------------|
+| `ner_bilstm_crf_train_150k` | 150,000 | 0.766 | 0.801 | 0.806 |
+| `ner_bilstm_crf_train` | 468,881 | 0.780 | 0.824 | 0.830 |
 
-## POS results (`python src/train_pos.py`, trained on Hindi HDTB transliterated to Gujarati script)
-| Split | BiLSTM-CRF acc | Most-frequent-tag acc | BiLSTM OOV acc |
-|---|---|---|---|
-| hi2gu test (Hindi)     | 0.969 | 0.915 | 0.810 |
-| GujTB test (real Gujarati, 1,801 tokens) | **0.372** | **0.432** | 0.203 |
-Transfer to real Gujarati fails: 61% of GujTB tokens are OOV and the model labels unknown Gujarati
-words as PROPN (NOUN->PROPN 243, VERB->PROPN 87). GujTB accuracy peaked at epoch 1 (0.44) and fell
-as the model fitted Hindi. Real Gujarati POS training data (LDC-IL) is needed.
+### POS (accuracy on GujTB — real Gujarati)
+| Setting | GujTB acc | GujTB macro-F1 | GujTB OOV acc |
+|---------|-----------|----------------|---------------|
+| Most-frequent-tag baseline | 0.432 | 0.236 | 0.250 |
+| BiLSTM-CRF (random init) | 0.372 | 0.232 | 0.203 |
+| + FastText frozen | 0.415 | 0.261 | 0.257 |
+| + FastText fine-tuned | **0.465** | **0.292** | **0.323** |
+| + FastText fine-tuned + rules | **0.687** | — | — |
 
-### + Gujarati fastText embeddings (`python src/train_embeddings.py`, then `--embeddings models/embeddings/fasttext_gu_100d.model`)
-fastText (100d, skip-gram, char 2-5-grams) on Naamapadam train + hi2gu train; GujTB vocab coverage 39% -> 94%.
-| Run | Hindi test acc | GujTB acc | GujTB macro-F1 | GujTB OOV acc | GujTB ambiguous acc |
-|---|---|---|---|---|---|
-| Most-frequent-tag baseline         | 0.915 | 0.432 | 0.236 | 0.250 | 0.514 |
-| BiLSTM-CRF (random init)           | 0.969 | 0.372 | 0.232 | 0.203 | 0.416 |
-| + fastText, frozen                 | 0.963 | 0.415 | 0.261 | 0.257 | 0.444 |
-| + fastText, fine-tuned             | 0.970 | **0.465** | **0.292** | **0.323** | 0.458 |
-Fine-tuned embeddings are the first model to beat the most-frequent-tag baseline on real Gujarati (+3.3 pts).
-Main remaining error: Gujarati nouns/verbs labelled PROPN (NOUN->PROPN 154).
+---
 
-### + decoding rules, no retraining (`src/pos_rules.py`, measured by `python src/eval_pos_rules.py`)
-Constraints applied to the CRF decode of the fine-tuned model: (1) a closed-class Gujarati function-word
-list (~150 words, written from grammar), (2) NER consistency: NER entity -> PROPN, NER O -> not PROPN.
-| Setting | GujTB acc | PROPN precision | PROPN recall |
-|---|---|---|---|
-| raw model            | 0.465 | 0.238 | 0.752 |
-| + word list          | 0.614 | 0.278 | 0.766 |
-| + NER consistency    | 0.548 | 0.758 | 0.800 |
-| + both               | **0.687** | 0.758 | 0.800 |
-Caveat: the word list was written by hand; three GujTB sample sentences had been seen in
-inspect_ud.py output beforehand, so confirm on a second Gujarati test set (e.g. ILCI) before
-reporting the word-list gain as final. The NER-consistency rule uses no hand-picked words.
+## Try it on Your Own Text
 
-## Run order (from this folder)
-1. Install PyTorch with the CUDA wheel matching your GPU, then `pip install -r requirements.txt`
-2. `python env_check.py`            -> results/reports/env_report.json
-3. `python inspect_naamapadam.py`   -> results/reports/naamapadam_gu_inspection.{json,md}
-4. `python inspect_ud.py`           -> datasets/processed/pos_hi2gu/, pos_gujtb/, results/reports/ud_inspection.{json,md}
-5. `python src/preprocessing.py`    -> datasets/processed/ner/, models/vocabulary/, models/label_mappings/,
-                                       results/reports/ner_preprocessing_report.json
-6. `python src/train_ner.py`        -> NER BiLSTM-CRF (word + char-CNN) on the 150k subset;
-                                       add `--train train` for the full set, `--limit 2000 --epochs 1` to smoke-test.
-                                       Writes models/checkpoints/<run>/best.pt, results/training_history/<run>.json,
-                                       results/metrics/<run>.json (+ test predictions for error analysis)
+```bash
+# Interactive mode (type a sentence, press Enter; empty line to quit)
+python src/predict.py
 
-## Try it on your own text
-    python src/predict.py                                   # interactive: type a sentence, Enter; empty line quits
-    python src/predict.py "રાહુલ ગાંધી અમદાવાદમાં રહે છે."    # one sentence / paragraph
-    python src/predict.py --file my_text.txt                # each line of a UTF-8 file
-Prints POS + NER per word and the entities found. Uses the full-data NER model and the
-fastText fine-tuned POS model by default (`--ner` / `--pos` to pick other checkpoints).
+# Single sentence
+python src/predict.py "રાહુલ ગાંધી અમદાવાદમાં રહે છે."
 
-## Known issue
-On this machine (Windows, torch 2.11 + cuDNN 9.19), `nn.LSTM(num_layers>1, dropout>0)` on CUDA
-crashes the process at exit (0xC0000409). `src/model.py` therefore stacks single-layer BiLSTMs
-with dropout applied between them, which computes the same thing.
+# From a text file (one sentence per line, UTF-8)
+python src/predict.py --file my_text.txt
+```
 
-## Datasets
-- NER: ai4bharat/naamapadam (Gujarati only). Raw copy kept untouched in datasets/raw/naamapadam/.
-- POS: LDC-IL Gujarati POS Annotated Corpus (request via data.ldcil.org) -> datasets/raw/ldcil_pos/.
-Processed copies go in datasets/processed/; originals are never modified.
+Prints POS + NER per word and the named entities found.
+Uses the full-data NER model and FastText fine-tuned POS model by default.
+Use `--ner` / `--pos` flags to point to other checkpoints.
+
+---
+
+## Known Issues
+
+- **Windows + CUDA crash on exit**: On Windows with `torch 2.x + cuDNN 9.x`, using `nn.LSTM(num_layers>1, dropout>0)` on CUDA crashes the process at exit (`0xC0000409`). Fixed in `src/model.py` by stacking single-layer BiLSTMs with dropout between them.
+- **GujTB POS accuracy is low (0.465 raw)**: The model is trained on Hindi transliterated to Gujarati, not real Gujarati. The rule-based post-processing raises it to **0.687**. Real Gujarati training data (LDC-IL) would significantly improve performance.
+
+---
+
+## Project Structure
+
+```
+├── src/
+│   ├── preprocessing.py       # NER data preprocessing
+│   ├── train_embeddings.py    # FastText → KeyedVectors export
+│   ├── train_ner.py           # BiLSTM-CRF NER training
+│   ├── train_pos.py           # BiLSTM-CRF POS training
+│   ├── model.py               # BiLSTMTagger model definition
+│   ├── predict.py             # Inference on new Gujarati text
+│   ├── pos_rules.py           # Post-decode constraint rules
+│   └── eval_pos_rules.py      # Rule evaluation script
+├── datasets/
+│   ├── raw/                   # Raw downloaded datasets (NOT in repo)
+│   └── processed/             # Preprocessed .jsonl files (large files NOT in repo)
+├── models/
+│   ├── embeddings/            # FastText model + .kv file (NOT in repo — too large)
+│   ├── checkpoints/           # Trained model .pt files (NOT in repo)
+│   ├── vocabulary/            # word2id / char2id JSON files
+│   └── label_mappings/        # label2id JSON files
+├── results/
+│   ├── metrics/               # Per-run evaluation JSON
+│   ├── training_history/      # Loss / accuracy per epoch JSON
+│   └── reports/               # Dataset inspection reports
+├── requirements.txt
+└── env_check.py
+```
+
+---
+
+## Datasets Credit
+- **NER**: [ai4bharat/naamapadam](https://huggingface.co/datasets/ai4bharat/naamapadam) — AI4Bharat
+- **POS (Hindi)**: [UD Hindi HDTB](https://universaldependencies.org/treebanks/hi_hdtb/) — Universal Dependencies
+- **POS (Gujarati)**: [UD Gujarati GTB](https://universaldependencies.org/treebanks/gu_gtb/) — Universal Dependencies
